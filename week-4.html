@@ -1,0 +1,276 @@
+<html>
+    <head>
+        <title>to-do-list</title>
+    </head>
+    <style>
+        body{
+            align-items: center;
+            background-color: bisque;
+            margin: 0;
+            justify-content: center;
+            display: flex;
+            height: 100vh;
+            font-family:Arial, Helvetica, sans-serif
+        }
+        .container{
+            text-align: center;
+            padding: 20px;
+            background-color:rgb(140, 222, 222);
+            width:30%;
+            border-radius:10px;
+            box-shadow: 100px;
+        }
+        .input {
+            background-color:whitesmoke;
+            border: 1ex solid none;
+            border-top-width: 1.7em;
+            margin: 0;
+            padding: 0;
+            color: black;
+            word-wrap: break-word;
+            outline: 7px solid bisque;
+            height: 30px;
+            font-size: 17px;
+            text-align: center;
+            transition: all 1s;
+            max-width: 190px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+           }
+           
+           .input:hover {
+            border-top-width: 0.2em;
+            background-color: #f1e8e8;
+           }
+           
+           .input:focus {
+            border-top-width: 0.2em;
+            background-color: #f1e8e8;
+           }
+           .button {
+            --main-focus: #2d8cf0;
+            --font-color: #323232;
+            --bg-color-sub: #dedede;
+            --bg-color: #eee;
+            --main-color: #323232;
+            position: relative;
+            width: 120px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            border: 2px solid var(--main-color);
+            box-shadow: 4px 4px var(--main-color);
+            background-color: var(--bg-color);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: -8px;
+            margin-left: 10px;
+          }
+          
+          .button, .button__icon, .button__text {
+            transition: all 0.3s;
+          }
+          
+          .button .button__text {
+            transform: translateX(22px);
+            color: var(--font-color);
+            font-weight: 600;
+          }
+          
+          .button .button__icon {
+            position: absolute;
+            transform: translateX(109px);
+            height: 100%;
+            width: 39px;
+            background-color: var(--bg-color-sub);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          
+          .button .svg {
+            width: 20px;
+            fill: var(--main-color);
+          }
+          
+          .button:hover {
+            background: var(--bg-color);
+          }
+          
+          .button:hover .button__text {
+            color: transparent;
+          }
+          
+          .button:hover .button__icon {
+            width: 80%;
+            transform: translateX(0);
+          }
+          
+          .button:active {
+            transform: translate(3px, 3px);
+            box-shadow: 0px 0px var(--main-color);
+          }
+          .b1 {
+            --main-focus: #2d8cf0;
+            --font-color: #323232;
+            --bg-color-sub: #dedede;
+            --bg-color: #eee;
+            --main-color: #323232;
+            width: 50px;
+            height: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            border: 2px solid var(--main-color);
+            box-shadow: 4px 4px var(--main-color);
+            background-color: var(--bg-color);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 3px;
+            
+          }
+          
+          .b1, .b1__icon, .b1__text {
+            transition: all 0.3s;
+          }
+          
+          .b1 .b1__text {
+            transform: translateX(22px);
+            color: var(--font-color);
+            font-weight: 600;
+          }
+          
+          .b1 .b1__icon {
+            position: absolute;
+            transform: translateX(109px);
+            height: 100%;
+            width: 39px;
+            background-color: var(--bg-color-sub);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          
+          .b1 .svg {
+            width: 20px;
+            fill: var(--main-color);
+          }
+          
+          .b1:hover {
+            background: var(--bg-color);
+          }
+          
+          .b1:hover .button__text {
+            color: transparent;
+          }
+          
+          .b1:hover .button__icon {
+            width: 80%;
+            transform: translateX(0);
+          }
+          
+          .b1:active {
+            transform: translate(3px, 3px);
+            box-shadow: 0px 0px var(--main-color);
+          }
+          ul{
+            list-style-type: none;
+          }
+          li{
+            padding: 6px;
+            display: flex;
+          }
+          .du{
+            background-color: aliceblue;
+            border-radius: 4px;
+          }
+          li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 4px;
+        }
+        li span {
+            flex-grow: 1;
+        }
+        
+        li button {
+            margin-left: 8px;
+            cursor: pointer;
+        }
+        
+        
+          
+    </style>
+    <body>
+        <div class="container">
+            <h1>To do list</h1>
+            <div style="display: flex;">
+            <input type="text" id="txtinput" class="input" placeholder="Add a new task here...">
+            <button class="button" type="button" onclick="add()">
+                <span class="button__text">Add Item</span>
+                <span class="button__icon"><svg class="svg" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><line x1="12" x2="12" y1="5" y2="19"></line><line x1="5" x2="19" y1="12" y2="12"></line></svg></span>
+            </button></div>
+            <div class="du">
+            <ul id="list"></ul>
+            </div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded",function()
+            {
+                load();
+            });
+            function add(){
+                var i=document.getElementById("txtinput");
+                var tl=document.getElementById("list");
+                if(i.value.trim()==""){
+                    alert("Enter the text...");
+                    return
+                }
+                var inp=i.value;
+                i.value="";
+                var li=document.createElement("li");
+                li.innerHTML=`<span>${inp}</span><button  onclick="edit(this)">Edit</button> <button  onclick="del(this)">Delete</button>`;
+                tl.appendChild(li);
+                save();
+            }
+            function edit(button)
+            {
+                var nt=prompt("Edit the task:",button.parentElement.firstChild.innerHTML);
+                if(nt!=null)
+                {
+                    button.parentElement.firstChild.innerHTML=nt;
+                    save();
+                }
+            }
+            function del(button){
+                button.parentElement.remove();
+                save();
+            }
+            function save()
+            {
+                var l=document.getElementById("list");
+                var tasks=[];
+                l.childNodes.forEach(function (task){
+                    tasks.push(task.firstChild.innerHTML);
+                });
+                localStorage.setItem("tasks",JSON.stringify(tasks));
+            }
+            function load()
+            {
+                var l=document.getElementById('list');
+                var tasks=localStorage.getItem("tasks");
+                if(tasks){
+                    JSON.parse(tasks).forEach(function(tt){
+                        var li=document.createElement("li");
+                        li.innerHTML=`<span>${tt}</span><button  onclick="edit(this)">Edit</button> <button  onclick="del(this)">Delete</button>`;
+                        l.appendChild(li);
+                    })
+                }
+            }
+        </script>
+    </body>
+</html>
